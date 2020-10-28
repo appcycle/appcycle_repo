@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{  form|bootstrap }}
+
+    <br>
+    <button type="submit" button type="button" class="btn btn-primary"> Cadastrar </button>
+</form>
+{% endblock %}

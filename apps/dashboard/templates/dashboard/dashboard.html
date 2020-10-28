@@ -1,0 +1,24 @@
+{% extends 'base_dash.html' %}
+
+
+
+
+{% block main %}
+
+Olá,  {{ request.user }} ! <a href="{% url 'logout' %}"> Logout </a>
+
+<br>
+
+<a href=" {% url  'cadastrarProjeto'  %} "> Cadastrar Projeto </a> <br>
+<a href=" {% url  'visualizarProjeto'  %} "> Listar Projetos </a> <br>
+<a> ----------- </a> <br>
+<a href=" {% url  'cadastrarRequisito'  %} "> Cadastrar Requisitos </a> <br>
+<a href=" {% url  'visualizarRequisito'  %} "> Visualizar Requisitos </a> <br>
+
+<a> ----------- </a> <br>
+<a href=" {% url  'changelog'  %} "> Changelog </a> <br>
+
+
+
+{% endblock %}
+
