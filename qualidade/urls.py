@@ -12,6 +12,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('dashboard/', include('apps.dashboard.urls')),
     path('requisitos/', include('apps.requisitos.urls')),
+    path('gestaoteste/', include('apps.gestaoteste.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('change-password/', auth_views.PasswordChangeView.as_view()),
 

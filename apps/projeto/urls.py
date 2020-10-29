@@ -7,9 +7,9 @@ from .views import (
 )
 
 urlpatterns = [
-     path('cadastrarProjeto/', ProjetoCreate.as_view(), name='cadastrarProjeto'),
-     path('visualizarProjeto/', ProjetoList.as_view(), name='visualizarProjeto'),
-     path('apagarProjeto/<int:pk>/', ProjetoDelete.as_view(), name='apagarProjeto'),
-    path('editarProjeto/<int:pk>/', ProjetoView.as_view(), name='atualizarProjeto'),
+     path('cadastrarprojeto/', ProjetoCreate.as_view(), name='cadastrarprojeto'),
+     path('visualizarprojeto/', ProjetoList.as_view(), name='visualizarprojeto'),
+     path('apagarprojeto/<int:pk>/', ProjetoDelete.as_view(), name='apagarprojeto'),
+    path('editarprojeto/<int:pk>/', ProjetoView.as_view(), name='atualizarprojeto'),
 
 ]

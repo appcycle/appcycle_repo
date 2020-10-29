@@ -39,7 +39,7 @@ class ProjetoList(ListView):
 @method_decorator(login_required, name='dispatch')
 class ProjetoDelete(DeleteView):
     model = Projeto
-    success_url = reverse_lazy('visualizarProjeto')
+    success_url = reverse_lazy('visualizarprojeto')
 
 
 @method_decorator(login_required, name='dispatch')

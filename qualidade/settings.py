@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'apps.cadastro',
     'apps.projeto',
     'apps.dashboard',
-    'apps.requisitos'
+    'apps.requisitos',
+    'apps.gestaoteste'
+
 ]
 
 MIDDLEWARE = [
@@ -138,8 +140,8 @@ STATICFILES_DIRS = [
 
 ]
 
-TINYMCE_JS_URL = os.path.join(MEDIA_URL, "path/to/tiny_mce/tiny_mce.js")
-TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, "path/to/tiny_mce")
+TINYMCE_JS_URL = os.path.join(MEDIA_URL, "https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js")
+#TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, "path/to/tiny_mce")
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecker,paste,searchreplace",
     'theme': "advanced",
