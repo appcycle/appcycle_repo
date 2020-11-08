@@ -1,11 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base_dash.html' %}
 {% load bootstrap %}
 
 {% block main %}
+<div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Lista de Projetos</li>
+  </ol>
+</nav>
+    </div>
 
-    List
-<table class="table table-striped" >
-    <br>
+
+<div>
+    <table class="table table-striped" >
+        <br>
     <tr>
     <th>Nome Projeto </th>
     <th>Início </th>
@@ -40,7 +49,7 @@
     {% endfor %}
 
 </table>
-
+</div>
 
 <div class="pagination">
     <span class="step-links">

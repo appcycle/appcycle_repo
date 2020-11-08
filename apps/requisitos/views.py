@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.http import request
+from django.shortcuts import render
 from django.urls import reverse_lazy
 
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 
+from apps.requisitos.filters import RequisitoFilter
 from apps.requisitos.forms import CadastrarRequisitos
 from apps.requisitos.models import Requisito
-from apps.projeto.models import Projeto
 
 
 @method_decorator(login_required, name='dispatch')
@@ -40,7 +41,7 @@ class RequisitoList(ListView):
 @method_decorator(login_required, name='dispatch')
 class RequisitoDelete(DeleteView):
     model = Requisito
-    success_url = reverse_lazy('visualizarRequisito')
+    success_url = reverse_lazy('visualizarrequisito')
 
 
 @method_decorator(login_required, name='dispatch')
@@ -48,7 +49,7 @@ class RequisitoView(UpdateView):
     model = Requisito
     fields = ['nomeRequisito',
               'responsavel',
-              'código',
+              'codigo',
               'projeto',
               'prioridade',
               'risco',
@@ -56,6 +57,8 @@ class RequisitoView(UpdateView):
               'status',
               'requisitosImpactados',
               'estoriaUsuario',
-              'regrasNegocio'
+              'regrasNegocio',
+              'documento'
               ]
+
 

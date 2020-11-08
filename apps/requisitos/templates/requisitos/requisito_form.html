@@ -1,10 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'base_dash.html' %}
 {% load bootstrap %}
 
 {% block main %}
 
+<div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+      {% if requisito.id %}
+    <li class="breadcrumb-item active" aria-current="page">Editar Requisito</li>
+      {% endif %}
+      {% if not requisito.id %}
+     <li class="breadcrumb-item active" aria-current="page">Cadastrar Requisito</li>
+     </ol>
+    {% endif %}
+</nav>
+</div>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
     {{  form|bootstrap }}

@@ -14,7 +14,7 @@ class CadastrarRequisitos(ModelForm):
         model = Requisito
         fields = ['nomeRequisito',
                   'responsavel',
-                  'código',
+                  'codigo',
                   'projeto',
                   'prioridade',
                   'status',
@@ -22,5 +22,6 @@ class CadastrarRequisitos(ModelForm):
                   'motivo',
                   'requisitosImpactados',
                   'estoriaUsuario',
-                  'regrasNegocio']
+                  'regrasNegocio',
+                  'documento']
 

@@ -7,15 +7,16 @@ from apps.projeto.models import Projeto
 
 class Requisito (models.Model):
     nomeRequisito = models.CharField(max_length=30, verbose_name=('Nome do Requisito'))
-    responsavel = models.CharField(max_length=30, verbose_name=('Responsável pelo Desenvolvimento'))
-    código = models.CharField(max_length=20, verbose_name=('Código do Requisito'))
+    responsavel = models.CharField(max_length=30, verbose_name=('Responsável pelo Desenvolvimento'), blank=True)
+    codigo = models.CharField(max_length=20, verbose_name=('Código do Requisito'))
     projeto = models.ForeignKey(Projeto, on_delete=models.PROTECT)
-    prioridade = models.CharField(max_length=10, verbose_name=('Prioridade do Requisito'))
-    risco = models.CharField(max_length=10, verbose_name=('Risco do Requisito'))
-    motivo = models.CharField(max_length=20, verbose_name=('Motivo do Requisito'))
-    status = models.CharField(max_length=20, verbose_name=('Status do Requisito'))
-    requisitosImpactados = models.CharField(max_length=100, verbose_name=('Requisitos Impactados'))
+    prioridade = models.CharField(max_length=10, verbose_name=('Prioridade do Requisito'), blank=True)
+    risco = models.CharField(max_length=10, verbose_name=('Risco do Requisito'), blank=True)
+    motivo = models.CharField(max_length=100, verbose_name=('Motivo do Requisito'), blank=True)
+    status = models.CharField(max_length=20, verbose_name=('Status do Requisito'), blank=True)
+    requisitosImpactados = models.TextField(verbose_name=('Requisitos Impactados'), blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    documento = models.FileField(upload_to='documentos', blank=True)
     estoriaUsuario = HTMLField()
     regrasNegocio = HTMLField()
 
@@ -23,4 +24,4 @@ class Requisito (models.Model):
         return self.nomeRequisito
 
     def get_absolute_url(self):
-        return reverse('visualizarRequisito')
+        return reverse('visualizarrequisito')
