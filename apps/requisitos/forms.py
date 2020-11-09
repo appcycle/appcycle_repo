@@ -20,6 +20,7 @@ class CadastrarRequisitos(ModelForm):
                   'status',
                   'risco',
                   'motivo',
+                  'ponto_focal',
                   'requisitosImpactados',
                   'estoriaUsuario',
                   'regrasNegocio',

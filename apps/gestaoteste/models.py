@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
+from django.urls import reverse
+
 from apps.requisitos.models import Requisito
 
 
@@ -18,6 +20,9 @@ class GestaoTeste(models.Model):
 
     def __str__(self):
         return self.nome_caso_teste
+
+    def get_absolute_url(self):
+        return reverse('visualizarct')
 
 
 

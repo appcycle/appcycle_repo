@@ -10,6 +10,7 @@ class Requisito (models.Model):
     responsavel = models.CharField(max_length=30, verbose_name=('Responsável pelo Desenvolvimento'), blank=True)
     codigo = models.CharField(max_length=20, verbose_name=('Código do Requisito'))
     projeto = models.ForeignKey(Projeto, on_delete=models.PROTECT)
+    ponto_focal = models.CharField(max_length=20, verbose_name=('Ponto Focal'), blank=True)
     prioridade = models.CharField(max_length=10, verbose_name=('Prioridade do Requisito'), blank=True)
     risco = models.CharField(max_length=10, verbose_name=('Risco do Requisito'), blank=True)
     motivo = models.CharField(max_length=100, verbose_name=('Motivo do Requisito'), blank=True)

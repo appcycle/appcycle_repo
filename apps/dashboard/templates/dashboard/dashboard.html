@@ -8,14 +8,18 @@ Olá,  {{ request.user }} ! <a href="{% url 'logout' %}"> Logout </a>
 <br>
 
 <a href=" {% url  'cadastrarprojeto'  %} "> Cadastrar Projeto </a> <br>
-<a href=" {% url  'visualizarprojeto'  %} "> Listar Projetos </a> <br>
+<a href=" {% url  'visualizarprojeto'  %} "> Listar Projeto(s) </a> <br>
+
 <a> ----------- </a> <br>
-<a href=" {% url  'cadastrarrequisito'  %} "> Cadastrar Requisitos </a> <br>
-<a href=" {% url  'visualizarrequisito'  %} "> Visualizar Requisitos </a> <br>
+
+<a href=" {% url  'cadastrarrequisito'  %} "> Cadastrar Requisito </a> <br>
+<a href=" {% url  'visualizarrequisito'  %} "> Listar Requisito(s) </a> <br>
 
 <a> ----------- </a> <br>
 
 <a href=" {% url  'cadastrarct'  %} "> Cadastrar Caso de Teste </a> <br>
+<a href=" {% url  'visualizarct'  %} "> Listar Caso(s) de Teste(s) </a> <br>
+
 
 <a> ----------- </a> <br>
 

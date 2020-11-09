@@ -54,6 +54,7 @@ class RequisitoView(UpdateView):
               'prioridade',
               'risco',
               'motivo',
+              'ponto_focal',
               'status',
               'requisitosImpactados',
               'estoriaUsuario',
