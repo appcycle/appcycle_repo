@@ -18,7 +18,9 @@ class GestaodeTesteForm(ModelForm):
             'requisito_associado',
             'status',
             'prioridade',
+            'objetivo_teste',
             'caso_de_teste',
+            'resultados_esperados',
             'caso_de_teste_doc',
             'automatizado'
         ]

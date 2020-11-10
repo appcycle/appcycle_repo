@@ -1,11 +1,11 @@
 from django.urls import path
 
-from apps.gestaoteste.views import CTcreate, CTview
+from apps.gestaoteste.views import CTcreate, CTview, CTdelete, CTlist
 
 urlpatterns = [
      path('cadastrarct/', CTcreate.as_view(), name='cadastrarct'),
-     path('visualizarct/', CTview.as_view(), name='visualizarct'),
-    # path('apagarprojeto/<int:pk>/', ProjetoDelete.as_view(), name='apagarprojeto'),
-    # path('editarprojeto/<int:pk>/', ProjetoView.as_view(), name='atualizarprojeto'),
+     path('visualizarct/', CTlist.as_view(), name='visualizarct'),
+     path('apagarct/<int:pk>/', CTdelete.as_view(), name='apagarct'),
+     path('editarct/<int:pk>/', CTview.as_view(), name='atualizarct'),
 
 ]
