@@ -7,6 +7,7 @@ from django.urls import path, include
 from apps.core.views import home
 from django.contrib.auth import views as auth_views
 
+from apps.criarusuario.views import signup
 
 urlpatterns = [
     path('', home, name='home'),
@@ -18,6 +19,7 @@ urlpatterns = [
     path('dashboard/', include('apps.dashboard.urls')),
     path('requisitos/', include('apps.requisitos.urls')),
     path('gestaoteste/', include('apps.gestaoteste.urls')),
+    url('criarusuario/', signup, name='signup'),
     path('tinymce/', include('tinymce.urls')),
     path('change-password/', auth_views.PasswordChangeView.as_view()),
 

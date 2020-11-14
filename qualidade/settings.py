@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'apps.dashboard',
     'apps.requisitos',
     'apps.gestaoteste',
+    'apps.criarusuario',
     'django_filters'
 
 ]
