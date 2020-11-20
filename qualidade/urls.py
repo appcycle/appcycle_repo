@@ -21,7 +21,7 @@ urlpatterns = [
     path('gestaoteste/', include('apps.gestaoteste.urls')),
     url('criarusuario/', signup, name='signup'),
     path('tinymce/', include('tinymce.urls')),
-    path('change-password/', auth_views.PasswordChangeView.as_view()),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

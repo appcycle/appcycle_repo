@@ -6,11 +6,13 @@ from .models import Cadastro
 class CadastroCreate(CreateView):
     model = Cadastro
     fields = ['nomeCompleto',
-              'nomeEmpresa',
-              'endereco',
               'cpf',
-              'email',
               'telefone',
               'celular',
-              'cargo']
+              'cargo',
+              'email',
+              'nomeEmpresa',
+              'endereco'
+
+             ]
 

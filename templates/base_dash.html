@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,25 +12,32 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>tinymce.init({selector:'textarea'});</script>
-   <title>AppQuality</title>
+<script src="https://cdn.tiny.cloud/1/hj414j2l7wvrpycptwu04jw6nfqv7j4uv32506cwhl78m0qv/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+    });
+  </script>
+   <title>QualityExpert</title>
     </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">AppQuality</a>
+  <a class="navbar-brand" href="#">QualityExpert</a>
     <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Olá,  {{ request.user}} !
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Trocar senha</a>
+          <a class="dropdown-item" href="/change-password">Trocar senha</a>
           <a class="dropdown-item" href="#">Changelog</a>
           <a class="dropdown-item" href="#">Suporte</a>
           <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>
+
 
 
 {% block main %} {% endblock %}
