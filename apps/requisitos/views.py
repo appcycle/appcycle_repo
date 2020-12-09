@@ -49,6 +49,7 @@ class RequisitoView(UpdateView):
     model = Requisito
     fields = ['nomeRequisito',
               'responsavel',
+              'storypoints',
               'codigo',
               'projeto',
               'prioridade',

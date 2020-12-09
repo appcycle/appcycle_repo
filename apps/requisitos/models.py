@@ -15,6 +15,7 @@ class Requisito (models.Model):
     risco = models.CharField(max_length=10, verbose_name=('Risco do Requisito'), blank=True)
     motivo = models.CharField(max_length=100, verbose_name=('Motivo do Requisito'), blank=True)
     status = models.CharField(max_length=20, verbose_name=('Status do Requisito'), blank=True)
+    storypoints = models.CharField(max_length=3, verbose_name=('Story Points'), blank=True)
     requisitosImpactados = models.TextField(verbose_name=('Requisitos Impactados'), blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     documento = models.FileField(upload_to='documentos', blank=True)

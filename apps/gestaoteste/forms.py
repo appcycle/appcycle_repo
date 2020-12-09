@@ -13,8 +13,8 @@ class GestaodeTesteForm(ModelForm):
     class Meta:
         model = GestaoTeste
         fields = [
-            'nome_caso_teste',
             'codigo',
+            'nome_caso_teste',
             'requisito_associado',
             'status',
             'prioridade',

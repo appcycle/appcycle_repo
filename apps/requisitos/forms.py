@@ -12,9 +12,10 @@ class CadastrarRequisitos(ModelForm):
 
     class Meta:
         model = Requisito
-        fields = ['nomeRequisito',
+        fields = ['codigo',
+                  'nomeRequisito',
                   'responsavel',
-                  'codigo',
+                  'storypoints',
                   'projeto',
                   'prioridade',
                   'status',

@@ -36,7 +36,7 @@ class GestaoBug (models.Model):
     nome_bug = models.CharField(max_length=30, verbose_name=('Nome do Bug'))
     desenvolvedor_responsavel = models.CharField(max_length=30, verbose_name=('Desenvolvedor Responsável'))
     relator_bug = models.CharField(max_length=30, verbose_name=('Relator do Bug'))
-    ct_relacionado = models.ManyToManyField(GestaoTeste, blank=True, verbose_name='Caso(s) de Teste(s) Relacionado(s)')
+    ct_relacionado = models.ForeignKey(GestaoTeste, on_delete=models.PROTECT, null=True, default=None, verbose_name='Caso de Teste Relacionado')
     descricao_bug = models.TextField(verbose_name=('Descrição do Bug'), blank=True)
     upload_bug = models.FileField(upload_to='documentos', blank=True, verbose_name=('Evidências'))
     severidade_bug = models.ForeignKey(SeveridadeBug, on_delete=models.PROTECT, null=True, blank=True)
