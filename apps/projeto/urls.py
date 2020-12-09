@@ -3,7 +3,7 @@ from .views import (
     ProjetoCreate,
     ProjetoList,
     ProjetoDelete,
-    ProjetoView
+    ProjetoView,
 )
 
 urlpatterns = [

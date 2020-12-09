@@ -1,0 +1,28 @@
+{% extends 'base_dash.html' %}
+
+{% block main %}
+
+<div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/gestaobug/visualizarstatusbug/">Status de Bug</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Apagar Status do Bug "{{ object }}" </li>
+  </ol>
+</nav>
+</div>
+
+<div>
+
+     <form method="POST">
+        {% csrf_token %}
+
+        <h2>Você está certo que deseja apagar o status do bug "{{ object }}" ? </h2>
+
+        {{ form }}
+
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+
+    </form>
+
+</div>
+{% endblock %}

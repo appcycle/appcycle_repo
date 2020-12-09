@@ -6,9 +6,7 @@ from apps.projeto.models import Projeto
 
 @login_required
 def home(request):
-    usuarioLogado = request.user
-    resumo_projetos = Projeto.objects.filter(user=usuarioLogado)
-    return render(request, 'dashboard/dashboard.html', {'Proj': resumo_projetos})
+    return render(request, 'dashboard/dashboard.html')
 
 #Sem filtro de usuario
 # def home(request):

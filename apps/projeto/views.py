@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+
 from .models import Projeto
 from ..requisitos.forms import CadastrarRequisitos
 
@@ -47,6 +48,8 @@ class ProjetoDelete(DeleteView):
 class ProjetoView(UpdateView):
     model = Projeto
     fields = ['nomeProjeto', 'descricao', 'dtInicio', 'deadline', 'nomeSprint', 'status']
+
+
 
 
 

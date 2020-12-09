@@ -13,12 +13,12 @@ class Projeto(models.Model):
     dtInicio = models.DateField(auto_now=False, auto_now_add=False, verbose_name=('Data de Início'), blank=True)
     deadline = models.DateField(auto_now=False, auto_now_add=False, verbose_name=('Deadline'), blank=True)
     nomeSprint = models.CharField(max_length=30, verbose_name=('Nome da Sprint'), blank=True)
-    status = models.CharField(max_length=20, verbose_name=('Status'), blank=True)
-
+    status = models.CharField(max_length=20, verbose_name=('Status do Projeto'), blank=True)
 
     def __str__(self):
         return self.nomeProjeto
 
-
     def get_absolute_url(self):
         return reverse('visualizarprojeto')
+
+

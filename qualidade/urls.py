@@ -20,6 +20,7 @@ urlpatterns = [
     path('requisitos/', include('apps.requisitos.urls')),
     path('gestaoteste/', include('apps.gestaoteste.urls')),
     url('criarusuario/', signup, name='signup'),
+    url('gestaobug/', include('apps.gestaobug.urls')),
     path('tinymce/', include('tinymce.urls')),
 
 
