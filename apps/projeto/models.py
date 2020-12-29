@@ -5,6 +5,16 @@ from django.urls import reverse
 from tinymce import models as tinymce_models
 from tinymce.models import HTMLField
 
+class StatusProjeto(models.Model):
+    statusprojeto = models.CharField(max_length=20, verbose_name=('Status do Projeto'))
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.statusprojeto
+
+    def get_absolute_url(self):
+        return reverse('visualizarstatusprojeto')
+
 
 class Projeto(models.Model):
     nomeProjeto = models.CharField(max_length=20, verbose_name=('Nome do Projeto'))
@@ -13,7 +23,7 @@ class Projeto(models.Model):
     dtInicio = models.DateField(auto_now=False, auto_now_add=False, verbose_name=('Data de Início'), blank=True)
     deadline = models.DateField(auto_now=False, auto_now_add=False, verbose_name=('Deadline'), blank=True)
     nomeSprint = models.CharField(max_length=30, verbose_name=('Nome da Sprint'), blank=True)
-    status = models.CharField(max_length=20, verbose_name=('Status do Projeto'), blank=True)
+    status = models.ForeignKey(StatusProjeto, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nomeProjeto

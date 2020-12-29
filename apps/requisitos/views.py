@@ -8,7 +8,7 @@ from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 
 from apps.requisitos.filters import RequisitoFilter
 from apps.requisitos.forms import CadastrarRequisitos
-from apps.requisitos.models import Requisito
+from apps.requisitos.models import Requisito, PrioridadeRequisito
 
 
 @method_decorator(login_required, name='dispatch')
@@ -33,9 +33,9 @@ class RequisitoList(ListView):
     paginate_by = 10
     model = Requisito
 
-    def get_queryset(self):
-        usuarioLogado = self.request.user
-        return Requisito.objects.filter(user=usuarioLogado)
+#    def get_queryset(self):
+#        usuarioLogado = self.request.user
+#        return Requisito.objects.filter(user=usuarioLogado)
 
 
 @method_decorator(login_required, name='dispatch')
@@ -64,3 +64,50 @@ class RequisitoView(UpdateView):
               ]
 
 
+
+@method_decorator(login_required, name='dispatch')
+class RequisitoCreate(CreateView):
+    model = Requisito
+    form_class = CadastrarRequisitos
+
+    def get_form_kwargs(self):
+        kwargs = super(RequisitoCreate, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.user = self.request.user
+        obj.save()
+        return super(RequisitoCreate, self).form_valid(form)
+
+
+@method_decorator(login_required, name='dispatch')
+class PrioridadeRequisitoCreate(CreateView):
+    model = PrioridadeRequisito
+    fields = ['prioridade_requisito']
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.user = self.request.user
+        obj.save()
+        return super(PrioridadeRequisitoCreate, self).form_valid(form)
+
+
+@method_decorator(login_required, name='dispatch')
+class PrioridadeRequisitoList(ListView):
+    paginate_by = 10
+    model = PrioridadeRequisito
+
+
+@method_decorator(login_required, name='dispatch')
+class PrioridadeRequisitoView(UpdateView):
+        model = PrioridadeRequisito
+        fields = ['prioridade_requisito']
+
+
+
+@method_decorator(login_required, name='dispatch')
+class PrioridadeRequisitoDelete(DeleteView):
+    model = PrioridadeRequisito
+    success_url = reverse_lazy('visualizarprioridaderequisito')
