@@ -1,18 +1,17 @@
 {% extends 'base_dash.html' %}
 
+
 {% block main %}
 
-<div>
-<nav aria-label="breadcrumb">
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Apagar Statu de Projeto "{{ object }}" </li>
+    <li class="breadcrumb-item active" aria-current="page">Apagar Status de Projeto "{{ object }}" </li>
   </ol>
 </nav>
-</div>
 
-<div>
-
+<div id = "layoutSidenav_content">
      <form method="POST">
         {% csrf_token %}
 
@@ -23,5 +22,9 @@
         <button type="submit" class="btn btn-danger">Confirmar</button>
 
     </form>
+
 </div>
+
+</div>
+
 {% endblock %}

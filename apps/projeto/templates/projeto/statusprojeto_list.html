@@ -2,14 +2,14 @@
 {% load bootstrap %}
 
 {% block main %}
-<div>
+
+<div class="container-fluid">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Lista de Projetos</li>
+    <li class="breadcrumb-item active" aria-current="page">Lista de Status de Projetos</li>
   </ol>
 </nav>
-    </div>
 
 
 <div>
@@ -43,7 +43,7 @@
     {% endfor %}
 
 </table>
-</div>
+
 
 <div class="pagination">
     <span class="step-links">
@@ -61,5 +61,8 @@
             <a href="?page={{ page_obj.paginator.num_pages }}" class="page-item">último &raquo;</a>
         {% endif %}
     </span> </div>
+
+    </div>
+</div>
 
 {% endblock %}
