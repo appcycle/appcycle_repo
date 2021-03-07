@@ -7,7 +7,7 @@ from .views import (
     StatusProjetoCreate,
     StatusProjetoList,
     StatusProjetoDelete,
-    StatusProjetoView
+    StatusProjetoView, DetalheView
 
 )
 
@@ -20,5 +20,6 @@ urlpatterns = [
      path('visualizarstatusprojeto/', StatusProjetoList.as_view(), name='visualizarstatusprojeto'),
      path('apagarstatusprojeto/<int:pk>/', StatusProjetoDelete.as_view(), name='apagarstatusprojeto'),
      path('atualizarstatusprojeto/<int:pk>/', StatusProjetoView.as_view(), name='atualizarstatusprojeto'),
+     path('detalheprojeto/<int:pk>/', DetalheView.as_view(), name='detalheprojeto'),
 
 ]

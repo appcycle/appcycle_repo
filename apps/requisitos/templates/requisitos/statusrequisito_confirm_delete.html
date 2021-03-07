@@ -5,12 +5,12 @@
 <div class="container-fluid">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/gestaobug/visualizarseveridadebug/">Severidade de bug</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Apagar Severidade "{{ object }}" </li>
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Apagar Status de Requisito  "{{ object }}" </li>
   </ol>
 </nav>
 
-<div>
+
 
      <form method="POST">
         {% csrf_token %}
@@ -21,10 +21,7 @@
 
         <button type="submit" class="btn btn-danger">Confirmar</button>
 
-
     </form>
-
-      
 </div>
 </div>
 {% endblock %}

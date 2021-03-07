@@ -22,12 +22,12 @@
       toolbar_mode: 'floating',
     });
   </script>
-   <title>QualityExpert</title>
+   <title>AppQuality</title>
     </head>
 <body>
 
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">QualityExpert</a>
+  <a class="navbar-brand" href="#">AppQuality</a>
      <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
     <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,8 +55,13 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Início
                             </a>
+                              <a class="nav-link" href="/dashboard/changelog">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Changelog
+                            </a>
                             <div class="sb-sidenav-menu-heading">Módulos</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
+                               aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Projeto
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -70,8 +75,8 @@
                                 </nav>
                             </div>
 
-
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                               aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Requisitos
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -80,37 +85,37 @@
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="{% url  'cadastrarrequisito'  %}">Adicionar Requisito</a>
                                     <a class="nav-link" href="{% url  'cadastrarprioridaderequisito'  %}">Adicionar Prioridade de Requisito</a>
+                                    <a class="nav-link" href="{% url  'cadastrarstatusrequisito'  %}">Adicionar Status de Requisito</a>
                                     <a class="nav-link" href="{% url  'visualizarrequisito'  %}">Visualizar Requisito</a>
                                     <a class="nav-link" href="{% url  'visualizarprioridaderequisito'  %}">Visualizar Prioridade de Requisito</a>
+                                    <a class="nav-link" href="{% url  'visualizarstatusrequisito'  %}">Visualizar Status de Requisito</a>
+                                    <a class="nav-link" href="{% url  'cadastrarriscorequisito'  %}">Adicionar Risco de Requisito</a>
+                                    <a class="nav-link" href="{% url  'visualizarriscorequisito'  %}">Visualizar Risco de Requisito</a>
 
-
-
-
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
                                 </nav>
+                             </div>
+
+                              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                                 aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Qualidade
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                              </a>
+                                <div class="collapse" id="collapsePages" aria-labelledby="headingThree"
+                                     data-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                            <a class="nav-link" href="{% url  'cadastrarrequisito'  %}">Adicionar Requisito</a>
+                                    </nav>
+                                </div>
+
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
+                         </div>
+                          <div class="sb-sidenav-footer">
                         <div class="small">Logado como:</div>
                          {{ request.user }}
                     </div>
                 </nav>
+
             </div>
 
 

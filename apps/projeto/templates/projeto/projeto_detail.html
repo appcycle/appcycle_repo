@@ -1,0 +1,25 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/projeto/visualizarprojeto/">Voltar para Projetos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Detalhes do Projeto</li>
+  </ol>
+</nav>
+
+<div class="container-fluid">
+<p>Nome do Projeto: {{ object.nomeProjeto }}</p>
+<p>Criado por: {{ object.user }}</p>
+<p>Descrição: {{ object.descricao }}</p>
+<p>Início: {{ object.dtInicio }}</p>
+<p>Deadline: {{ object.deadline }}</p>
+<p>Nome da Sprint: {{object.nomeSprint }}</p>
+<p>Status: {{object.status }}</p>
+</div>
+</div>
+
+{% endblock %}

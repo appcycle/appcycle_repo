@@ -1,17 +1,22 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
+from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
 from .models import Projeto, StatusProjeto
 from ..requisitos.forms import CadastrarRequisitos
 
 
 @method_decorator(login_required, name='dispatch')
-class ProjetoCreate(CreateView):
+class ProjetoCreate(SuccessMessageMixin, CreateView):
     model = Projeto
+    success_url = '/projeto/cadastrarprojeto/'
+
     fields = ['nomeProjeto',
               'descricao',
               'dtInicio',
@@ -20,6 +25,7 @@ class ProjetoCreate(CreateView):
               'status',
              ]
 
+
     def form_valid(self, form):
         obj = form.save(commit=False)
         obj.user = self.request.user
@@ -27,15 +33,19 @@ class ProjetoCreate(CreateView):
         return super(ProjetoCreate, self).form_valid(form)
 
 
+    def get_success_message(self, cleaned_data):
+        print(cleaned_data)
+        return "Projeto criado com sucesso!"
+
 
 @method_decorator(login_required, name='dispatch')
 class ProjetoList(ListView):
     paginate_by = 10
     model = Projeto
 
-    def get_queryset(self):
-        usuarioLogado = self.request.user
-        return Projeto.objects.filter(user=usuarioLogado)
+   # def get_queryset(self):
+   #     usuarioLogado = self.request.user
+   #     return Projeto.objects.filter(user=usuarioLogado)
 
 
 @method_decorator(login_required, name='dispatch')
@@ -78,3 +88,8 @@ class StatusProjetoDelete(DeleteView):
 class StatusProjetoView(UpdateView):
     model = StatusProjeto
     fields = ['statusprojeto',]
+
+
+@method_decorator(login_required, name='dispatch')
+class DetalheView(DetailView):
+    model = Projeto

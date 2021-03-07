@@ -5,10 +5,6 @@ from apps.requisitos.models import Requisito
 
 
 class CadastrarRequisitos(ModelForm):
-    def __init__(self, user, *args, **kwargs):
-        super(CadastrarRequisitos, self).__init__(*args, **kwargs)
-        self.fields['projeto'].queryset = Projeto.objects.filter(
-             user=user)
 
     class Meta:
         model = Requisito
@@ -20,6 +16,8 @@ class CadastrarRequisitos(ModelForm):
                   'prioridade',
                   'status',
                   'risco',
+                  'urlRepositorio',
+                  'urlJira',
                   'motivo',
                   'ponto_focal',
                   'requisitosImpactados',

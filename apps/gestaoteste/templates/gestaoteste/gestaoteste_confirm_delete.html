@@ -2,9 +2,15 @@
 
 {% block main %}
 
-Apagar Requisito
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Apagar Teste "{{ object }}" </li>
+  </ol>
+</nav>
 
-
+<div id = "layoutSidenav_content">
 <form method="POST">
 
     {% csrf_token %}
@@ -15,5 +21,8 @@ Apagar Requisito
 
     <button type="submit" class="btn btn-danger">Confirmar</button>
 </form>
+</div>
+</div>
+
 
 {% endblock %}
