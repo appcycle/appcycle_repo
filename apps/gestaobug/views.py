@@ -15,10 +15,11 @@ class BGseveridade (CreateView):
     model = SeveridadeBug
     form_class = GestaoSeveridadeBugForm
 
-    def get_form_kwargs(self):
-        kwargs = super(BGseveridade, self).get_form_kwargs()
-        kwargs.update({'user': self.request.user})
-        return kwargs
+
+   # def get_form_kwargs(self):
+   #     kwargs = super(BGseveridade, self).get_form_kwargs()
+   #     kwargs.update({'user': self.request.user})
+   #     return kwargs
 
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -32,10 +33,11 @@ class BGseveridade (CreateView):
 class BGlistseveridade(ListView):
     paginate_by = 10
     model = SeveridadeBug
+    ordering = ['-id']
 
-    def get_queryset(self):
-        usuarioLogado = self.request.user
-        return SeveridadeBug.objects.filter(user=usuarioLogado)
+   # def get_queryset(self):
+   #     usuarioLogado = self.request.user
+   #     return SeveridadeBug.objects.filter(user=usuarioLogado)
 
 
 
@@ -56,10 +58,10 @@ class BGstatus (CreateView):
     model = StatusBug
     form_class = GestaoStatusBugForm
 
-    def get_form_kwargs(self):
-        kwargs = super(BGstatus, self).get_form_kwargs()
-        kwargs.update({'user': self.request.user})
-        return kwargs
+    #def get_form_kwargs(self):
+    #    kwargs = super(BGstatus, self).get_form_kwargs()
+    #    kwargs.update({'user': self.request.user})
+    #    return kwargs
 
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -73,9 +75,9 @@ class BGliststatus(ListView):
     paginate_by = 10
     model = StatusBug
 
-    def get_queryset(self):
-        usuarioLogado = self.request.user
-        return StatusBug.objects.filter(user=usuarioLogado)
+   # def get_queryset(self):
+   #     usuarioLogado = self.request.user
+   #     return StatusBug.objects.filter(user=usuarioLogado)
 
 
 @method_decorator(login_required, name='dispatch')
@@ -111,10 +113,9 @@ class BGcreate (CreateView):
 class BGlist (ListView):
     model = GestaoBug
     form_class = GestaoBugForm
-
     paginate_by = 10
     model = GestaoBug
-    ordering = ['-codigo_bug']
+    ordering = ['-id']
 
    # def get_queryset(self):
    #     usuarioLogado = self.request.user

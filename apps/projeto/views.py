@@ -42,6 +42,7 @@ class ProjetoCreate(SuccessMessageMixin, CreateView):
 class ProjetoList(ListView):
     paginate_by = 10
     model = Projeto
+    ordering = ['-id']
 
    # def get_queryset(self):
    #     usuarioLogado = self.request.user
@@ -76,7 +77,7 @@ class StatusProjetoCreate(CreateView):
 class StatusProjetoList(ListView):
     paginate_by = 10
     model = StatusProjeto
-
+    ordering = ['-id']
 
 @method_decorator(login_required, name='dispatch')
 class StatusProjetoDelete(DeleteView):

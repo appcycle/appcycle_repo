@@ -28,6 +28,7 @@ class RequisitoCreate(CreateView):
 class RequisitoList(ListView):
     paginate_by = 10
     model = Requisito
+    ordering = ['-id']
 
 #    def get_queryset(self):
 #        usuarioLogado = self.request.user
@@ -79,11 +80,12 @@ class PrioridadeRequisitoCreate(CreateView):
         return super(PrioridadeRequisitoCreate, self).form_valid(form)
 
 
+
 @method_decorator(login_required, name='dispatch')
 class PrioridadeRequisitoList(ListView):
     paginate_by = 10
     model = PrioridadeRequisito
-
+    ordering = ['-id']
 
 
 @method_decorator(login_required, name='dispatch')
@@ -114,6 +116,7 @@ class StatusRequisitoCreate(CreateView):
 class StatusRequisitoList(ListView):
     paginate_by = 10
     model = StatusRequisito
+    ordering = ['-id']
 
 
 @method_decorator(login_required, name='dispatch')
@@ -144,3 +147,4 @@ class RiscoRequisitoCreate(CreateView):
 class RiscoRequisitoList(ListView):
     paginate_by = 10
     model = RiscoRequisito
+    ordering = ['-id']

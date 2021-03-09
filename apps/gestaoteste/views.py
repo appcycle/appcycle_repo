@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
 from apps.gestaoteste.forms import GestaodeTesteForm
 from apps.gestaoteste.models import GestaoTeste
@@ -15,10 +15,10 @@ class CTcreate (CreateView):
     model = GestaoTeste
     form_class = GestaodeTesteForm
 
-    def get_form_kwargs(self):
-        kwargs = super(CTcreate, self).get_form_kwargs()
-        kwargs.update({'user': self.request.user})
-        return kwargs
+#    def get_form_kwargs(self):
+#        kwargs = super(CTcreate, self).get_form_kwargs()
+#        kwargs.update({'user': self.request.user})
+#        return kwargs
 
     def form_valid(self, form):
         obj = form.save(commit=False)
@@ -31,10 +31,11 @@ class CTcreate (CreateView):
 class CTlist(ListView):
     paginate_by = 10
     model = GestaoTeste
+    ordering = ['-id']
 
-    def get_queryset(self):
-        usuarioLogado = self.request.user
-        return GestaoTeste.objects.filter(user=usuarioLogado)
+  #  def get_queryset(self):
+  #      usuarioLogado = self.request.user
+  #      return GestaoTeste.objects.filter(user=usuarioLogado)
 
 
 @method_decorator(login_required, name='dispatch')
@@ -60,3 +61,8 @@ class CTview(UpdateView):
             'automatizado'
             ]
 
+
+
+@method_decorator(login_required, name='dispatch')
+class CTDetalheView(DetailView):
+    model = GestaoTeste

@@ -13,6 +13,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('cadastro/', include('apps.cadastro.urls')),
+    path('changelog/', include('apps.changelog.urls')),
     path('projeto/', include('apps.projeto.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('change-password/', auth_views.PasswordChangeView.as_view()),

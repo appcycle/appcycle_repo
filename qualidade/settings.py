@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.gestaoteste',
     'apps.gestaobug',
     'apps.criarusuario',
+    'apps.changelog',
     'django_filters'
 
 ]
