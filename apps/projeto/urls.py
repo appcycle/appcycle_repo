@@ -1,4 +1,8 @@
+from django.conf.urls import url
 from django.urls import path
+from django_filters.views import FilterView
+
+from .models import Projeto
 from .views import (
     ProjetoCreate,
     ProjetoList,
@@ -21,5 +25,5 @@ urlpatterns = [
      path('apagarstatusprojeto/<int:pk>/', StatusProjetoDelete.as_view(), name='apagarstatusprojeto'),
      path('atualizarstatusprojeto/<int:pk>/', StatusProjetoView.as_view(), name='atualizarstatusprojeto'),
      path('detalheprojeto/<int:pk>/', DetalheView.as_view(), name='detalheprojeto'),
-
+    url(r'^list/$', FilterView.as_view(model=Projeto)),
 ]

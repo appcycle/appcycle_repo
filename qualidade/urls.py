@@ -20,7 +20,7 @@ urlpatterns = [
     path('dashboard/', include('apps.dashboard.urls')),
     path('requisitos/', include('apps.requisitos.urls')),
     path('gestaoteste/', include('apps.gestaoteste.urls')),
-    url('criarusuario/', signup, name='signup'),
+    url('criarusuario/', include('apps.criarusuario.urls')),
     url('gestaobug/', include('apps.gestaobug.urls')),
     path('tinymce/', include('tinymce.urls')),
 

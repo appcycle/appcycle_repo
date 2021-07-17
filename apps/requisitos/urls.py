@@ -12,6 +12,7 @@ from .views import (
     PrioridadeRequisitoList,
     PrioridadeRequisitoView, PrioridadeRequisitoDelete, StatusRequisitoCreate, StatusRequisitoList,
     StatusRequisitoDelete, StatusRequisitoView, RiscoRequisitoCreate, RiscoRequisitoList, DetalheRequisitoView,
+    SearchResultsListView,
 
 )
 
@@ -30,6 +31,7 @@ urlpatterns = [
      path('editarstatusderequisito/<int:pk>/', StatusRequisitoView.as_view(), name='atualizarstatusrequisito'),
      path('cadastrarriscorequisito/', RiscoRequisitoCreate.as_view(), name='cadastrarriscorequisito'),
      path('visualizarriscorequisito/', RiscoRequisitoList.as_view(), name='visualizarriscorequisito'),
-    path('detalherequisito/<int:pk>/', DetalheRequisitoView.as_view(), name='detalherequisito'),
+     path('detalherequisito/<int:pk>/', DetalheRequisitoView.as_view(), name='detalherequisito'),
+     path('search_results/', SearchResultsListView.as_view(), name='search_results'),
 
 ]

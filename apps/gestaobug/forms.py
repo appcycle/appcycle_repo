@@ -27,10 +27,10 @@ class GestaoBugForm(ModelForm):
 
 
 class GestaoSeveridadeBugForm(ModelForm):
-    def __init__(self, user, *args, **kwargs):
-        super(GestaoSeveridadeBugForm, self).__init__(*args, **kwargs)
-        self.fields['severidade_bug'].queryset = SeveridadeBug.objects.filter(
-             user=user)
+   # def __init__(self, user, *args, **kwargs):
+   #     super(GestaoSeveridadeBugForm, self).__init__(*args, **kwargs)
+   #     self.fields['severidade_bug'].queryset = SeveridadeBug.objects.filter(
+   #          user=user)
 
     class Meta:
         model = SeveridadeBug
@@ -40,10 +40,10 @@ class GestaoSeveridadeBugForm(ModelForm):
 
 
 class GestaoStatusBugForm(ModelForm):
-    def __init__(self, user, *args, **kwargs):
-        super(GestaoStatusBugForm, self).__init__(*args, **kwargs)
-        self.fields['status_bug'].queryset = SeveridadeBug.objects.filter(
-             user=user)
+ #   def __init__(self, user, *args, **kwargs):
+ #       super(GestaoStatusBugForm, self).__init__(*args, **kwargs)
+ #       self.fields['status_bug'].queryset = SeveridadeBug.objects.filter(
+ #            user=user)
 
     class Meta:
         model = StatusBug

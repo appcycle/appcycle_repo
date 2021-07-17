@@ -7,9 +7,9 @@ from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
-
 from .models import Projeto, StatusProjeto
 from ..requisitos.forms import CadastrarRequisitos
+from .filters import ProjetoFilter
 
 
 @method_decorator(login_required, name='dispatch')
@@ -47,6 +47,12 @@ class ProjetoList(ListView):
    # def get_queryset(self):
    #     usuarioLogado = self.request.user
    #     return Projeto.objects.filter(user=usuarioLogado)
+
+    def search(request):
+        projeto_list = Projeto.objects.all()
+        projeto_list = ProjetoFilter(request.GET, queryset=projeto_list)
+        return render(request, 'search/user_list.html', {'filter': projeto_list})
+
 
 
 @method_decorator(login_required, name='dispatch')

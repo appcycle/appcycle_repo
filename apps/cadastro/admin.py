@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 
-from apps.cadastro.models import Cadastro
+from apps.cadastro.models import CadastroCliente
 
-admin.site.register(Cadastro)
+admin.site.register(CadastroCliente)

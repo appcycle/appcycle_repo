@@ -10,8 +10,18 @@
   </ol>
 </nav>
 
-
 <div>
+
+ <form method="get">
+        {{ projeto.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% for obj in projeto.qs %}
+        {{ obj.name }} - ${{ obj.price }}<br />
+    {% endfor %}
+
+
+
     <table class="table table-striped" >
         <br>
     <tr>

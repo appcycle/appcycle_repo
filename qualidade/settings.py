@@ -50,9 +50,12 @@ INSTALLED_APPS = [
     'apps.gestaobug',
     'apps.criarusuario',
     'apps.changelog',
-    'django_filters'
+     'django_filters',
+
 
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -12,7 +12,7 @@ class GestaoTeste(models.Model):
     codigo = models.CharField(max_length=10, verbose_name=('Código do Caso de Teste'))
     requisito_associado = models.ForeignKey(Requisito, on_delete=models.PROTECT, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    caso_de_teste_doc = models.FileField(upload_to='documentos', blank=True, null=True, )
+    caso_de_teste_doc = models.FileField(upload_to='documentos', blank=True, null=True, verbose_name="Carregar Documento")
     objetivo_teste = models.CharField(max_length=50, verbose_name=('Objetivo do teste'), null=True, blank=True)
     status = models.CharField(max_length=15, verbose_name=('Status do Caso de Teste'), blank=True, null=True)
     caso_de_teste = models.TextField(verbose_name=('Caso de Teste'), blank=True, null=True)

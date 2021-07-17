@@ -2,6 +2,8 @@
 {% load bootstrap %}
 
 {% block main %}
+
+
 <div class="container-fluid">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -12,7 +14,7 @@
 
 
 <div>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 
     {% csrf_token %}
 

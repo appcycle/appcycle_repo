@@ -15,13 +15,14 @@
 <p>Nome do Caso de Teste: {{ object.nome_caso_teste }}</p>
 <p>Código: {{ object.codigo }}</p>
 <p>Prioridade: {{object.prioridade }}</p>
-<p>Criado por: {{ object.user }}</p>
+<p>Criado por: {{ object.user.first_name }} {{ object.user.last_name }}</p>
 <p>Requisito Associado: {{ object.requisito_associado }}</p>
 <p>Objetivo do Teste: {{ object.objetivo_teste }}</p>
 <p>Caso de Teste: {{ object.caso_de_teste }}</p>
 <p>Resultados Esperados: {{object.resultados_esperados }}</p>
 <p>Automatizado: {{object.automatizado }}</p>
-<p>Anexo: {{object.caso_de_teste_doc }}</p>
+<p>Anexo:<a href="/media/{{ object.caso_de_teste_doc }}"> {{ object.caso_de_teste_doc }} </a></p>
+
 
 </div>
 </div>

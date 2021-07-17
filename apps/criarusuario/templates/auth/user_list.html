@@ -1,0 +1,74 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Meu Time</li>
+  </ol>
+</nav>
+
+
+<div>
+      <table class="table table-striped" >
+        <br>
+    <tr>
+    <th>Nome</th>
+    <th>Sobrenome</th>
+    {% if perms.auth.delete_user %}
+        <th>Apagar Usuário</th>
+    {% endif %}
+  </tr>
+        {% for usuariosregistrados in object_list %}
+          {% if usuariosregistrados.is_superuser != True %}
+       <tr>
+            <td> {{ usuariosregistrados.first_name }} </td>
+            <td> {{ usuariosregistrados.last_name }} </td>
+
+         {% if perms.auth.delete_user %}
+              <td> teste </td>
+          {% endif %}
+
+       </tr>
+         {% endif %}
+      {% endfor %}
+
+</table>
+
+
+
+
+      <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="page-item">&laquo; Primeiro</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-item">Anterior</a>
+        {% endif %}
+
+        <span class="current" class="page-item">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="page-item">Próximo</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="page-item">último &raquo;</a>
+        {% endif %}
+    </span> </div>
+    </div>
+
+
+
+
+  <br>
+    Quer fazer um upgrade na sua conta e cadastrar mais usuários ao seu time?
+    <br>
+    Entre em contato: contato@appcycle.com.br
+    <br>
+
+</div>
+
+
+{% endblock %}

@@ -13,7 +13,7 @@
 
 <div class="container-fluid">
 <p>Nome do Projeto: {{ object.nomeProjeto }}</p>
-<p>Criado por: {{ object.user }}</p>
+<p>Criado por: {{ object.user.first_name}} {{ object.user.last_name}}</p>
 <p>Descrição: {{ object.descricao }}</p>
 <p>Início: {{ object.dtInicio }}</p>
 <p>Deadline: {{ object.deadline }}</p>
