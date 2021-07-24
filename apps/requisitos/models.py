@@ -61,4 +61,4 @@ class Requisito (models.Model):
         return self.nomeRequisito
 
     def get_absolute_url(self):
-        return reverse('visualizarrequisito')
+        return reverse('search_results')

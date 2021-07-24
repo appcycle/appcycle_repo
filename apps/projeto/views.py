@@ -7,6 +7,8 @@ from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
+from django_filters.views import FilterView
+
 from .models import Projeto, StatusProjeto
 from ..requisitos.forms import CadastrarRequisitos
 from .filters import ProjetoFilter
@@ -48,17 +50,12 @@ class ProjetoList(ListView):
    #     usuarioLogado = self.request.user
    #     return Projeto.objects.filter(user=usuarioLogado)
 
-    def search(request):
-        projeto_list = Projeto.objects.all()
-        projeto_list = ProjetoFilter(request.GET, queryset=projeto_list)
-        return render(request, 'search/user_list.html', {'filter': projeto_list})
-
 
 
 @method_decorator(login_required, name='dispatch')
 class ProjetoDelete(DeleteView):
     model = Projeto
-    success_url = reverse_lazy('visualizarprojeto')
+    success_url = reverse_lazy('search_projeto')
 
 
 @method_decorator(login_required, name='dispatch')
@@ -100,3 +97,10 @@ class StatusProjetoView(UpdateView):
 @method_decorator(login_required, name='dispatch')
 class DetalheView(DetailView):
     model = Projeto
+
+@method_decorator(login_required, name='dispatch')
+class SearchResultsProjetoListView(FilterView):
+    paginate_by = 5
+    model = Projeto
+    filterset_class = ProjetoFilter # ADD YOUR filterset class
+    ordering = ['-id']

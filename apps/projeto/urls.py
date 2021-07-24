@@ -11,7 +11,7 @@ from .views import (
     StatusProjetoCreate,
     StatusProjetoList,
     StatusProjetoDelete,
-    StatusProjetoView, DetalheView
+    StatusProjetoView, DetalheView,  SearchResultsProjetoListView
 
 )
 
@@ -25,5 +25,5 @@ urlpatterns = [
      path('apagarstatusprojeto/<int:pk>/', StatusProjetoDelete.as_view(), name='apagarstatusprojeto'),
      path('atualizarstatusprojeto/<int:pk>/', StatusProjetoView.as_view(), name='atualizarstatusprojeto'),
      path('detalheprojeto/<int:pk>/', DetalheView.as_view(), name='detalheprojeto'),
-    url(r'^list/$', FilterView.as_view(model=Projeto)),
+     path('search_projeto/', SearchResultsProjetoListView.as_view(), name='search_projeto'),
 ]

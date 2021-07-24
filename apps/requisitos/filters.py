@@ -6,7 +6,7 @@ class RequisitoFilter(django_filters.FilterSet):
 
     class Meta:
         model = Requisito
-        fields = ['codigo', 'nomeRequisito', 'projeto']
+        fields = ['codigo', 'nomeRequisito', 'projeto', 'responsavel']
 
 
 

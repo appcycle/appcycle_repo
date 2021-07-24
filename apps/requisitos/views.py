@@ -37,7 +37,7 @@ class RequisitoList(ListView):
 @method_decorator(login_required, name='dispatch')
 class RequisitoDelete(DeleteView):
     model = Requisito
-    success_url = reverse_lazy('visualizarrequisito')
+    success_url = reverse_lazy('search_results')
 
 
 @method_decorator(login_required, name='dispatch')

@@ -12,14 +12,16 @@
 
 <div>
 
- <form method="get">
-        {{ projeto.form.as_p }}
-        <input type="submit" />
-    </form>
-    {% for obj in projeto.qs %}
-        {{ obj.name }} - ${{ obj.price }}<br />
-    {% endfor %}
-
+<form method="get">
+<div class="form-group">
+{% csrf_token %}
+    <div class="form-group col-sm-4 col-md">
+   {{ filter.form }}
+        <br>
+   <button type="submit" class = "btn btn-primary"> Buscar </button>
+    </div>
+</div>
+</form>
 
 
     <table class="table table-striped" >

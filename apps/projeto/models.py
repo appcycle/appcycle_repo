@@ -29,6 +29,6 @@ class Projeto(models.Model):
         return self.nomeProjeto
 
     def get_absolute_url(self):
-        return reverse('visualizarprojeto')
+        return reverse('search_projeto')
 
 

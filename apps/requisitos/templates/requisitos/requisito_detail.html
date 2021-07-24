@@ -23,14 +23,16 @@
 <p>Motivo: {{object.motivo }}</p>
 <p>Status: {{object.status }}</p>
 <p>Link para o repositório: {{object.urlRepositorio }}</p>
+
+  {% if object.urlJira  != None %}
 <p>Link para o Jira: <a href="{{ object.urlJira }}"> {{object.urlJira }}</a> </p>
+  {% endif %}
+
 <p>Story Points: {{object.storypoints }}</p>
 <p>Requisitos Impactados: {{object.requisitosImpactados }}</p>
-<p>Criado por: {{object.user }}</p>
 <p>Estória do Usuário: {{object.estoriaUsuario }}</p>
 <p>Regras de Negócios: {{object.regrasNegocio }}</p>
 <p>Anexo:<a href="/media/{{ object.documento }}"> {{object.documento }}</p>
-
 
 
 </div>
