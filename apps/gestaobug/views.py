@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, ListView, DeleteView, UpdateView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 
 from apps.gestaobug.forms import GestaoBugForm, GestaoSeveridadeBugForm, GestaoStatusBugForm
 from apps.gestaobug.models import GestaoBug, SeveridadeBug, StatusBug
@@ -140,3 +140,9 @@ class BGatualizar(UpdateView):
     'severidade_bug',
     'status_bug'
                 ]
+
+
+
+@method_decorator(login_required, name='dispatch')
+class BGDetalheView(DetailView):
+    model = GestaoBug
