@@ -47,4 +47,4 @@ class GestaoBug (models.Model):
         return self.nome_bug
 
     def get_absolute_url(self):
-        return reverse('visualizarbug')
+        return reverse('search_bug')

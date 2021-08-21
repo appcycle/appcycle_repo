@@ -12,7 +12,7 @@ from apps.gestaobug.views import (
     BGatualizarStatus,
     BGcreate,
     BGlist,
-    BGapagar, BGatualizar, BGDetalheView
+    BGapagar, BGatualizar, BGDetalheView, SearchResultsBugListView
 
 )
 
@@ -30,4 +30,5 @@ urlpatterns = [
     path('apagarbug/<int:pk>', BGapagar.as_view(), name='apagarbug'),
     path('atualizarbug/<int:pk>', BGatualizar.as_view(), name='atualizarbug'),
     path('detalhebug/<int:pk>', BGDetalheView.as_view(), name='detalhebug'),
+    path('search_bug/', SearchResultsBugListView.as_view(), name='search_bug'),
 ]

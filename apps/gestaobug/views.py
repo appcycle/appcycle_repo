@@ -5,7 +5,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
+from django_filters.views import FilterView
 
+from apps.gestaobug.filters import BugFilter
 from apps.gestaobug.forms import GestaoBugForm, GestaoSeveridadeBugForm, GestaoStatusBugForm
 from apps.gestaobug.models import GestaoBug, SeveridadeBug, StatusBug
 
@@ -125,7 +127,7 @@ class BGlist (ListView):
 @method_decorator(login_required, name='dispatch')
 class BGapagar(DeleteView):
     model = GestaoBug
-    success_url = reverse_lazy('visualizarbug')
+    success_url = reverse_lazy('search_bug')
 
 
 @method_decorator(login_required, name='dispatch')
@@ -146,3 +148,11 @@ class BGatualizar(UpdateView):
 @method_decorator(login_required, name='dispatch')
 class BGDetalheView(DetailView):
     model = GestaoBug
+
+
+@method_decorator(login_required, name='dispatch')
+class SearchResultsBugListView(FilterView):
+    paginate_by = 5
+    model = GestaoBug
+    filterset_class = BugFilter # ADD YOUR filterset class
+    ordering = ['-id']
