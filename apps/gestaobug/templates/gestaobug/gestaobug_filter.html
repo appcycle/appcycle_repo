@@ -94,23 +94,7 @@
     </span>
 </div>
 
-    <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1" class="page-item">&laquo; Primeiro</a>
-            <a href="?page={{ page_obj.previous_page_number }}" class="page-item">Anterior</a>
-        {% endif %}
 
-        <span class="current" class="page-item">
-            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="page-item">Próximo</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}" class="page-item">último &raquo;</a>
-        {% endif %}
-    </span>
-</div>
 
 </div>
 

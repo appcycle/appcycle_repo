@@ -1,6 +1,6 @@
 from django.urls import path
 
-from apps.gestaoteste.views import CTcreate, CTview, CTdelete, CTlist, CTDetalheView
+from apps.gestaoteste.views import CTcreate, CTview, CTdelete, CTlist, CTDetalheView, SearchResultCTListView
 
 urlpatterns = [
      path('cadastrarct/', CTcreate.as_view(), name='cadastrarct'),
@@ -8,5 +8,5 @@ urlpatterns = [
      path('apagarct/<int:pk>/', CTdelete.as_view(), name='apagarct'),
      path('editarct/<int:pk>/', CTview.as_view(), name='atualizarct'),
      path('detalhect/<int:pk>/', CTDetalheView.as_view(), name='detalhect'),
-
+     path('search_ct/', SearchResultCTListView.as_view(), name='search_ct'),
 ]

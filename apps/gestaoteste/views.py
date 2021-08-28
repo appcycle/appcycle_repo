@@ -5,7 +5,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
+from django_filters.views import FilterView
 
+from apps.gestaoteste.filters import CTFilter
 from apps.gestaoteste.forms import GestaodeTesteForm
 from apps.gestaoteste.models import GestaoTeste
 
@@ -41,7 +43,7 @@ class CTlist(ListView):
 @method_decorator(login_required, name='dispatch')
 class CTdelete(DeleteView):
     model = GestaoTeste
-    success_url = reverse_lazy('visualizarct')
+    success_url = reverse_lazy('search_ct')
 
 
 
@@ -66,3 +68,11 @@ class CTview(UpdateView):
 @method_decorator(login_required, name='dispatch')
 class CTDetalheView(DetailView):
     model = GestaoTeste
+
+
+@method_decorator(login_required, name='dispatch')
+class SearchResultCTListView(FilterView):
+    paginate_by = 5
+    model = GestaoTeste
+    filterset_class = CTFilter # ADD YOUR filterset class
+    ordering = ['-id']

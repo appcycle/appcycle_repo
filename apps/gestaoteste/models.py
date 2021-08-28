@@ -24,7 +24,7 @@ class GestaoTeste(models.Model):
         return self.nome_caso_teste
 
     def get_absolute_url(self):
-        return reverse('visualizarct')
+        return reverse('search_ct')
 
 
 
