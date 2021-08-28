@@ -11,9 +11,10 @@ from .views import (
     StatusProjetoCreate,
     StatusProjetoList,
     StatusProjetoDelete,
-    StatusProjetoView, DetalheView,  SearchResultsProjetoListView
+    StatusProjetoView, DetalheView, SearchResultsProjetoListView, ExportarCsvProjeto
 
 )
+
 
 urlpatterns = [
      path('cadastrarprojeto/', ProjetoCreate.as_view(), name='cadastrarprojeto'),
@@ -26,4 +27,5 @@ urlpatterns = [
      path('atualizarstatusprojeto/<int:pk>/', StatusProjetoView.as_view(), name='atualizarstatusprojeto'),
      path('detalheprojeto/<int:pk>/', DetalheView.as_view(), name='detalheprojeto'),
      path('search_projeto/', SearchResultsProjetoListView.as_view(), name='search_projeto'),
+     path('exportarcsv_projeto/', ExportarCsvProjeto.as_view(), name='exportarcsv_projeto'),
 ]

@@ -1,11 +1,15 @@
+import csv
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
+from django.views import View
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 from django_filters.views import FilterView
 
@@ -104,3 +108,30 @@ class SearchResultsProjetoListView(FilterView):
     model = Projeto
     filterset_class = ProjetoFilter # ADD YOUR filterset class
     ordering = ['-id']
+
+@method_decorator(login_required, name='dispatch')
+class SearchResultsProjetoListView(FilterView):
+    paginate_by = 5
+    model = Projeto
+    filterset_class = ProjetoFilter # ADD YOUR filterset class
+    ordering = ['-id']
+
+
+@method_decorator(login_required, name='dispatch')
+class ExportarCsvProjeto(View):
+    def get(self, request):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="projetoscsv.csv"'
+
+        registroprojeto = Projeto.objects.all()
+
+        writer = csv.writer(response)
+        writer.writerow(['Nome do Projeto', 'Criado Por', 'Descricao', 'Data de Inicio', 'Deadline', 'Nome da Sprint',
+                         'Status'])
+
+        for registro in registroprojeto:
+            writer.writerow([registro.nomeProjeto, registro.user, registro.descricao, registro.dtInicio, registro.deadline,
+                             registro.nomeSprint, registro.status])
+
+        return response
+

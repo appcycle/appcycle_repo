@@ -9,8 +9,10 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Projetos</li>
+
   </ol>
 </nav>
+
 
 <form method="get">
 <div class="form-group">
@@ -19,10 +21,14 @@
    {{ filter.form }}
    <br>
    <button type="submit" class = "btn btn-primary"> Buscar </button>
+
     </div>
 </div>
 </form>
 
+ <div class="container">
+   <p class="text-right">  <a href= "{% url 'exportarcsv_projeto' %}">Baixar CSV</a></p>
+ </div>
 
 <table class="table table-striped" >
         <br>
