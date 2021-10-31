@@ -12,7 +12,7 @@ from .views import (
     PrioridadeRequisitoList,
     PrioridadeRequisitoView, PrioridadeRequisitoDelete, StatusRequisitoCreate, StatusRequisitoList,
     StatusRequisitoDelete, StatusRequisitoView, RiscoRequisitoCreate, RiscoRequisitoList, DetalheRequisitoView,
-    SearchResultsListView,
+    SearchResultsListView, ExportarCsvRequisito,
 
 )
 
@@ -33,5 +33,6 @@ urlpatterns = [
      path('visualizarriscorequisito/', RiscoRequisitoList.as_view(), name='visualizarriscorequisito'),
      path('detalherequisito/<int:pk>/', DetalheRequisitoView.as_view(), name='detalherequisito'),
      path('search_results/', SearchResultsListView.as_view(), name='search_results'),
+     path('exportarcsv_requisito/', ExportarCsvRequisito.as_view(), name='exportarcsv_requisito'),
 
 ]

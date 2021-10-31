@@ -1,6 +1,10 @@
+import csv
+
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
+from django.views import View
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 from django_filters.views import FilterView
 from apps.requisitos.filters import RequisitoFilter
@@ -155,6 +159,26 @@ class SearchResultsListView(FilterView):
     model = Requisito
     filterset_class = RequisitoFilter # ADD YOUR filterset class
     ordering = ['-id']
+
+
+@method_decorator(login_required, name='dispatch')
+class ExportarCsvRequisito(View):
+    def get(self, request):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="requisitoscsv.csv"'
+
+        registrorequisito = Requisito.objects.all()
+
+        writer = csv.writer(response)
+        writer.writerow(['Codigo', 'Nome do Requisito', 'Criado Por', 'Projeto', 'Ponto Focal', 'Prioridade', 'Risco',
+                         'Status', 'Story Points'])
+
+        for registro in registrorequisito:
+            writer.writerow([registro.codigo, registro.nomeRequisito, registro.user, registro.projeto, registro.ponto_focal,
+                             registro.prioridade, registro.risco, registro.status, registro.storypoints])
+
+        return response
+
 
 
 

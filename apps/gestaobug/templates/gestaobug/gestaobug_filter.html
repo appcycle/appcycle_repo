@@ -18,11 +18,14 @@
     <div class="form-group col-sm-4 col-md">
    {{ filter.form }}
    <br>
-   <button type="submit" class = "btn btn-primary"> Buscar </button>
+   <button type="submit" class = "btn btn-primary"> Buscar Bugs </button>
     </div>
 </div>
 </form>
 
+ <div class="container">
+   <p class="text-right"><a href= "{% url 'exportarcsv_bug' %}">Baixar CSV</a></p>
+ </div>
 
 <table class="table table-striped" >
     <br>

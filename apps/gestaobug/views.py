@@ -1,9 +1,13 @@
+import csv
+
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
+from django.views import View
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView, DetailView
 from django_filters.views import FilterView
 
@@ -156,3 +160,22 @@ class SearchResultsBugListView(FilterView):
     model = GestaoBug
     filterset_class = BugFilter # ADD YOUR filterset class
     ordering = ['-id']
+
+
+@method_decorator(login_required, name='dispatch')
+class ExportarCsvBG(View):
+    def get(self, request):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="gestaobug.csv"'
+
+        registrobg = GestaoBug.objects.all()
+
+        writer = csv.writer(response)
+        writer.writerow(['Código', 'Nome do Bug', 'Desenvolvedor Responsável', 'Relator do Bug', 'Criado Por',
+                         'Caso de Teste Relacionado', 'Severidade', 'Status'])
+
+        for registro in registrobg:
+            writer.writerow([registro.codigo_bug, registro.nome_bug, registro.desenvolvedor_responsavel, registro.relator_bug,
+                             registro.user, registro.ct_relacionado, registro.severidade_bug, registro.status_bug])
+
+        return response
