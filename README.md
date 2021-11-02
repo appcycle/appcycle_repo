@@ -1,6 +1,6 @@
-Plataforma para gestão de requisitos de software open-source!
+Plataforma open-source para gestão de requisitos de software!
 
-Requisitos para Instalação
+Requisitos para Instalação do AppCycle
 * Python 3
 * Django 3.x
 * Instalar o conteúdo de Requirements.txt
