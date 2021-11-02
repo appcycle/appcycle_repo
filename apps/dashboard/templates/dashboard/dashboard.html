@@ -4,37 +4,9 @@
 
 {% block main %}
 
-
-
-<a> ----------- </a> <br>
-
-<a href=" {% url  'cadastrarct'  %} "> Adicionar Caso de Teste </a> <br>
-<a href=" {% url  'visualizarct'  %} "> Listar Caso(s) de Teste(s) </a> <br>
-
-
-<a> ----------- </a> <br>
-
-
-<a href=" {% url  'cadastrarseveridadebug'  %} "> Adicionar Severidade de Bugs </a> <br>
-<a href=" {% url  'visualizarseveridadebug'  %} "> Visualizar Severidade de Bugs </a> <br>
-<a href=" {% url  'cadastrarstatusbug'  %} "> Adicionar Status de Bugs </a> <br>
-<a href=" {% url  'visualizarstatusbug'  %} "> Visualizar Status de Bugs </a> <br>
-<a href=" {% url  'cadastrarbug'  %} "> Adicionar Bugs </a> <br>
-<a href=" {% url  'visualizarbug'  %} "> Visualizar Bugs </a> <br>
-
-<br>
-
-
-
-<a> ----------- </a> <br>
-
-<a href=" {% url  'changelog'  %} "> Changelog </a> <br>
-
-<br>
-
-<!-- <div id="layoutSidenav_content">
+ <div>
     <div class="card-body">
-        <h5 class="card-title">Últimos projetos cadastrados</h5>
+        <h5 class="card-title">Últimos Projetos Cadastrados</h5>
     <div class="card-text">
         <table class="table table-striped" >
         <br>
@@ -58,11 +30,12 @@
     {% endfor %}
   </table>
 
-   <a href="/projeto/visualizarprojeto/" class="card-link">ver mais</a>
+   <a href="/projeto/search_projeto/" class="card-link">ver mais</a>
  </div>
  </div>
 </div>
--->
+
+
 
 {% endblock %}
 

@@ -22,7 +22,7 @@ urlpatterns = [
     path('gestaoteste/', include('apps.gestaoteste.urls')),
     url('criarusuario/', include('apps.criarusuario.urls')),
     url('gestaobug/', include('apps.gestaobug.urls')),
-    path('tinymce/', include('tinymce.urls')),
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

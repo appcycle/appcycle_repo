@@ -6,4 +6,4 @@ class BugFilter(django_filters.FilterSet):
 
     class Meta:
         model = GestaoBug
-        fields = ['codigo_bug', 'status_bug']
+        fields = ['codigo_bug','nome_bug' , 'status_bug']

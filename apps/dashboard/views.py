@@ -8,13 +8,8 @@ from apps.requisitos.models import Requisito
 @login_required
 def home(request):
     resumo_projetos = Projeto.objects.all()
-    return render(request, 'dashboard/dashboard.html', {'Proj': resumo_projetos})
+    return render(request, 'dashboard/dashboard.html', {'Proj': resumo_projetos} )
 
-
-#Sem filtro de usuario
-# def home(request):
-# resumo_projetos = Projeto.objects.all()
-# return render (request, 'dashboard/dashboard.html', {'Proj': resumo_projetos})
 
 
 @login_required
