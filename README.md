@@ -6,4 +6,8 @@ Requisitos para Instalação do AppCycle
 * Instalar o conteúdo de Requirements.txt
 * Criar superuser para acesso ao /admin
 
+A documentação de uso encontra-se na aba "wiki" deste repositório. 
+
 Para mais informações, acesse www.appcycle.com.br
+
+
