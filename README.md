@@ -11,3 +11,36 @@ A documentação de uso encontra-se na aba "wiki" deste repositório e caso enco
 Para mais informações, acesse www.appcycle.com.br
 
 
+Instalar Django
+
+Short instruction for installing Django by Linux:
+
+1) To install a pipenv
+
+   $ pip3 install pipenv
+
+2) To create the folder for project
+
+   $ cd ~/Desktop
+   $ mkdir django
+   $ cd django
+
+3) To install a Django
+
+  $ pipenv install django==2.1
+
+4) To activated virtual envirenment
+
+  $ pipenv shell
+
+5) To create a new project
+
+   (django-JmZ1NTQw) $ django-admin startproject test_project .
+
+6) To run and check server
+
+   (django-JmZ1NTQw) $ python manage.py runserver
+   http://127.0.0.1:8000
+   CTRL+C
+   $ exit
+
