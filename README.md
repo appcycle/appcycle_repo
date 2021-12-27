@@ -11,6 +11,9 @@ A documentação de uso encontra-se na aba "wiki" deste repositório e caso enco
 Para mais informações, acesse www.appcycle.com.br
 
 
+Faça o fork deste projeto e ajude a colaborar com o AppCycle! Sua ideia será bem-vinda!
+
+
 Instalar Django
 
 Short instruction for installing Django by Linux:
