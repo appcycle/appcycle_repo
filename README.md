@@ -40,7 +40,9 @@ Short instruction for installing Django by Linux:
 6) To run and check server
 
    (django-JmZ1NTQw) $ python manage.py runserver
+   
+   
    http://127.0.0.1:8000
-   CTRL+C
-   $ exit
+   
+   CTRL+C: $ exit
 
