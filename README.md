@@ -18,38 +18,19 @@ Para mais informações, acesse www.appcycle.com.br
 Faça o fork deste projeto e ajude a colaborar com o AppCycle! Sua ideia será bem-vinda!
 
 
-Instalar Django
+Instruções para instalação
 
-Short instruction for installing Django by Linux:
+1. Clonar o repositório em sua máquina local
+2. Instalar o arquivo requirements.txt
 
-1) To install a pipenv
+pip install -r requirements.txt
 
-   $ pip3 install pipenv
+3. Criar a base de dados
 
-2) To create the folder for project
+python manage.py migrate
 
-   $ cd ~/Desktop
-   $ mkdir django
-   $ cd django
+4. Executar o servidor de desenvolvimento
 
-3) To install a Django
+python manage.py runserver
 
-  $ pipenv install django==2.1
-
-4) To activated virtual envirenment
-
-  $ pipenv shell
-
-5) To create a new project
-
-   (django-JmZ1NTQw) $ django-admin startproject test_project .
-
-6) To run and check server
-
-   (django-JmZ1NTQw) $ python manage.py runserver
-   
-   
-   http://127.0.0.1:8000
-   
-   CTRL+C: $ exit
-
+5. O projeto estará disponível em 127.0.0.1:8000 
