@@ -1,0 +1,71 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Meu Time</li>
+  </ol>
+</nav>
+
+
+<div>
+      <table class="table table-striped" >
+        <br>
+    <tr>
+    <th>Nome</th>
+    <th>Sobrenome</th>
+    {% if perms.auth.delete_user %}
+        <th>Apagar Usuário</th>
+    {% endif %}
+  </tr>
+        {% for usuariosregistrados in object_list %}
+          {% if usuariosregistrados.is_superuser != True %}
+       <tr>
+            <td> {{ usuariosregistrados.first_name }} </td>
+            <td> {{ usuariosregistrados.last_name }} </td>
+
+         {% if perms.auth.delete_user %}
+              <td> <a href="{% url 'apagarusuario' usuariosregistrados.id %}">
+           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+            </a> </td>
+          {% endif %}
+
+       </tr>
+         {% endif %}
+      {% endfor %}
+
+</table>
+
+
+
+
+      <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="page-item">&laquo; Primeiro</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-item">Anterior</a>
+        {% endif %}
+
+        <span class="current" class="page-item">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="page-item">Próximo</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="page-item">último &raquo;</a>
+        {% endif %}
+    </span> </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

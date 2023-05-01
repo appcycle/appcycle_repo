@@ -1,0 +1,30 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/gestaoteste/search_ct/">Voltar para Gestão de Testes</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Detalhes do Caso de Teste</li>
+  </ol>
+</nav>
+
+<div class="container-fluid">
+<p>Nome do Caso de Teste: {{ object.nome_caso_teste }}</p>
+<p>Código: {{ object.codigo }}</p>
+<p>Prioridade: {{object.prioridade }}</p>
+<p>Criado por: {{ object.user.first_name }} {{ object.user.last_name }}</p>
+<p>Requisito Associado: {{ object.requisito_associado }}</p>
+<p>Objetivo do Teste: {{ object.objetivo_teste }}</p>
+<p>Caso de Teste: {{ object.caso_de_teste }}</p>
+<p>Resultados Esperados: {{object.resultados_esperados }}</p>
+<p>Automatizado: {{object.automatizado }}</p>
+<p>Anexo:<a href="/media/{{ object.caso_de_teste_doc }}"> {{ object.caso_de_teste_doc }} </a></p>
+
+
+</div>
+</div>
+
+{% endblock %}

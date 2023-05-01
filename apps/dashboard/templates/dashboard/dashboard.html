@@ -1,0 +1,41 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+
+{% block main %}
+
+ <div>
+    <div class="card-body">
+        <h5 class="card-title">Últimos Projetos Cadastrados</h5>
+    <div class="card-text">
+        <table class="table table-striped" >
+        <br>
+    <tr>
+    <th>Nome Projeto </th>
+    <th>Início </th>
+    <th>Deadline </th>
+    <th>Status </th>
+    <th>Sprint </th>
+    <th>Criado por </th>
+    </tr>
+            {% for resumoprojetos in Proj|slice:":3" %}
+            <tr>
+                <td> {{ resumoprojetos.nomeProjeto }} </td>
+                <td> {{ resumoprojetos.dtInicio }} </td>
+                <td> {{ resumoprojetos.deadline }} </td>
+                <td> {{ resumoprojetos.status }} </td>
+                 <td> {{ resumoprojetos.nomeSprint }} </td>
+                 <td> {{ resumoprojetos.user }} </td>
+            </tr>
+    {% endfor %}
+  </table>
+
+   <a href="/projeto/search_projeto/" class="card-link">ver mais</a>
+ </div>
+ </div>
+</div>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Changelog</li>
+  </ol>
+</nav>
+
+
+<div>
+    <table class="table table-striped" >
+        <br>
+    <tr>
+    <th>Versão </th>
+    <th>Publicação </th>
+    <th>Descrição </th>
+
+    <th></th>
+    <th></th>
+  </tr>
+
+
+    {% for changelog in object_list %}
+
+       <tr>
+            <td> {{ changelog.versao_changelog }} </td>
+            <td> {{ changelog.data_changelog }} </td>
+            <td> {{ changelog.descricao_changelog }} </td>
+
+       </tr>
+            {% endfor %}
+    </table>
+</div>
+</div>
+{% endblock %}

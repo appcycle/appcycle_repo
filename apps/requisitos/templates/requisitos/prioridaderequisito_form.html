@@ -1,0 +1,30 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+      {% if prioridaderequisito.id %}
+    <li class="breadcrumb-item active" aria-current="page">Editar Prioridade de Requisito</li>
+      {% endif %}
+      {% if not prioridaderequisito.id %}
+     <li class="breadcrumb-item active" aria-current="page">Adicionar Prioridade de Requisito</li>
+     </ol>
+    {% endif %}
+</nav>
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{  form|bootstrap }}
+
+    <br>
+    <button type="submit" button type="button" class="btn btn-primary"> Cadastrar </button>
+</form>
+</div>
+
+{% endblock %}

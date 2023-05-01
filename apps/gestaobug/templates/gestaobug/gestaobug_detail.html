@@ -1,0 +1,31 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/gestaobug/search_bug/">Voltar para Lista de Bugs</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Detalhes do Bug</li>
+  </ol>
+</nav>
+
+<div class="container-fluid">
+<p>Código: {{ object.codigo_bug }}</p>
+<p>Criado Por: {{ object.user.first_name}} {{ object.user.last_name}}</p>
+<p>Nome: {{ object.nome_bug}} </p>
+<p>Desenvolvedor Responsável: {{ object.desenvolvedor_responsavel }}</p>
+<p>Relator: {{ object.relator_bug }}</p>
+<p>Caso de Teste Relacionado: {{ object.ct_relacionado }}</p>
+<p>Severidade: {{object.severidade_bug }}</p>
+<p>Status: {{object.status_bug }}</p>
+<p>Descrição: {{object.descricao_bug }}</p>
+<p>Arquivo: <a href="/media/{{ object.upload_bug }}"> {{object.upload_bug }}</p>
+
+</div>
+</div>
+
+
+
+    {% endblock %}

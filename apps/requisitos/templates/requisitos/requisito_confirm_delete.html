@@ -1,0 +1,25 @@
+{% extends 'base_dash.html' %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Apagar Requisito</li>
+  </ol>
+</nav>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <h2>Você está certo que deseja apagar "{{ object }}" ? </h2>
+
+    {{ form }}
+
+    <button type="submit" class="btn btn-danger">Confirmar</button>
+</form>
+</div>
+{% endblock %}

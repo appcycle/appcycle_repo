@@ -1,0 +1,41 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/requisitos/search_results/">Voltar para Requisitos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Detalhes do Requisito</li>
+  </ol>
+</nav>
+
+<div class="container-fluid">
+<p>Nome do Requisito: {{ object.nomeRequisito }}</p>
+<p>Responsável pelo Requisito: {{ object.responsavel }}</p>
+<p>Requisito criado por: {{ object.user.first_name}} {{ object.user.last_name}}</p>
+<p>Código do Requisito: {{ object.codigo }}</p>
+<p>Projeto Relacionado: {{ object.projeto }}</p>
+<p>Ponto Focal: {{ object.ponto_focal }}</p>
+<p>Prioridade: {{object.prioridade }}</p>
+<p>Risco: {{object.risco }}</p>
+<p>Motivo: {{object.motivo }}</p>
+<p>Status: {{object.status }}</p>
+<p>Link para o repositório: {{object.urlRepositorio }}</p>
+
+  {% if object.urlJira  != None %}
+<p>Link para o Jira: <a href="{{ object.urlJira }}"> {{object.urlJira }}</a> </p>
+  {% endif %}
+
+<p>Story Points: {{object.storypoints }}</p>
+<p>Requisitos Impactados: {{object.requisitosImpactados }}</p>
+<p>Estória do Usuário: {{object.estoriaUsuario }}</p>
+<p>Regras de Negócios: {{object.regrasNegocio }}</p>
+<p>Anexo:<a href="/media/{{ object.documento }}"> {{object.documento }}</p>
+
+
+</div>
+</div>
+
+{% endblock %}

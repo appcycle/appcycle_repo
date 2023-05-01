@@ -1,0 +1,33 @@
+{% extends 'base_dash.html' %}
+{% load bootstrap %}
+
+
+{% block main %}
+
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Criar Usuário</li>
+  </ol>
+</nav>
+
+
+  <form method="post">
+
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit">Adicionar Usuário</button>
+  </form>
+{% endblock %}
