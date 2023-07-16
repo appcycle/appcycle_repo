@@ -153,6 +153,20 @@ class RiscoRequisitoList(ListView):
     ordering = ['-id']
 
 
+
+@method_decorator(login_required, name='dispatch')
+class RiscoRequisitoView(UpdateView):
+        model = RiscoRequisito
+        fields = ['risco_requisito']
+
+
+
+@method_decorator(login_required, name='dispatch')
+class RiscoRequisitoDelete(DeleteView):
+    model = RiscoRequisito
+    success_url = reverse_lazy('visualizarriscorequisito')
+
+
 @method_decorator(login_required, name='dispatch')
 class SearchResultsListView(FilterView):
     paginate_by = 5
@@ -174,7 +188,7 @@ class ExportarCsvRequisito(View):
                          'Status', 'Story Points'])
 
         for registro in registrorequisito:
-            writer.writerow([registro.codigo, registro.nomeRequisito, registro.user, registro.projeto, registro.ponto_focal,
+            writer.writerow([registro.codigo, registro.nomeRequisito, registro.user.first_name + ' ' + registro.user.last_name, registro.projeto, registro.ponto_focal,
                              registro.prioridade, registro.risco, registro.status, registro.storypoints])
 
         return response

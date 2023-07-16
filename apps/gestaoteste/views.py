@@ -95,7 +95,7 @@ class ExportarCsvGestaoTeste(View):
                          'Prioridade', 'Automatizado'])
 
         for registro in registroteste:
-            writer.writerow([registro.codigo, registro.nome_caso_teste, registro.requisito_associado, registro.user,
+            writer.writerow([registro.codigo, registro.nome_caso_teste, registro.requisito_associado, registro.user.first_name + ' ' + registro.user.last_name ,
                              registro.status, registro.prioridade, registro.automatizado])
 
         return response

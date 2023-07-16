@@ -176,6 +176,6 @@ class ExportarCsvBG(View):
 
         for registro in registrobg:
             writer.writerow([registro.codigo_bug, registro.nome_bug, registro.desenvolvedor_responsavel, registro.relator_bug,
-                             registro.user, registro.ct_relacionado, registro.severidade_bug, registro.status_bug])
+                             registro.user.first_name + ' ' + registro.user.last_name, registro.ct_relacionado, registro.severidade_bug, registro.status_bug])
 
         return response

@@ -1,36 +1,48 @@
-Plataforma open-source para gestão de requisitos de software!
+Seja bem-vindo(a) ao AppCycle, uma plataforma open-source para gestão de requisitos de software! Desenvolvida idealmente para micro e pequenas empresas Brasileiras. 
+<br>
+Versão atual: 2023.2
+<br>
+Site: www.appcycle.com.br
+<br>
+Documentação do usuário: https://github.com/appcycle/appcycle_repo/wiki
+<br>
 
-
-Versão atual: 1.0
-
-
-Requisitos para Instalação do AppCycle
-* Python 3
-* Django 3.x
+<h2> Requisitos para Instalação do AppCycle </h2>
+* Python 3 <br>
+* Django 4.2.3 <br>
 * Instalar o conteúdo de Requirements.txt
-* Criar superuser para acesso ao <url_servidor>/admin
 
-A documentação de uso encontra-se na aba "wiki" deste repositório e caso encontre um bug, você pode abrir um issue.
+A documentação de uso encontra-se na aba "wiki" deste repositório. Caso encontre um bug, você pode abrir uma issue.
 
-Para mais informações, acesse www.appcycle.com.br
+<br>
 
-
-Faça o fork deste projeto e ajude a colaborar com o AppCycle! Sua ideia será bem-vinda!
-
-
-Instruções para instalação
+<h2> Instruções para instalação </h2>
 
 1. Clonar o repositório em sua máquina local
 2. Instalar o arquivo requirements.txt
-
-pip install -r requirements.txt
-
+<code> pip install -r requirements.txt </code>
 3. Criar a base de dados
+<code>python manage.py migrate </code> 
+5. Executar o servidor de desenvolvimento
+<code> python manage.py runserver </code> 
+6. O projeto estará disponível em  <code> 127.0.0.1:8000 </code>
+7. Configurar superusuário para o acesso em <url_servidor>/admin
+<code> python manage.py  createsuperuser </code>
 
-python manage.py migrate
+<h3> Organização das pastas do projeto </h3>
+Para o correto funcionamento, as pastas do projeto devem estar arranjadas da seguinte maneira:
+ <code>
+|.qualidade  
+  |.. apps   
+  |.. qualidade  
+      |... init.py 
+      |... asgi.py 
+      |... settings.py 
+      |... urls.py 
+      |... wsgi.py 
+  |.. static 
+  |.. templates 
+  |.. venv  </code>
 
-4. Executar o servidor de desenvolvimento
-
-python manage.py runserver
-
-5. O projeto estará disponível em 127.0.0.1:8000 
+<h2> Avalie sua experiência com o AppCycle </h2>
+Com a preocupação de manter um produto que atenda as necessidades das empresas brasileiras, lançamos uma pesquisa de avaliação de experiência, no qual você pode avaliar, anonimamente, a plataforma AppCycle. O questionário tem apenas 1 questão. Segue o link para avaliação: https://forms.gle/ocJ1sPBaEFXpbR6Y8

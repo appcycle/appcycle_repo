@@ -1,7 +1,6 @@
-from django.conf.urls import url
+from django.urls import re_path as path
 from django.contrib.auth.decorators import permission_required
 
-from django.urls import path
 
 from apps.criarusuario.views import signup, ListUsuariosRegistrados, DeleteUser
 

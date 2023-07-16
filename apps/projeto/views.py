@@ -130,7 +130,7 @@ class ExportarCsvProjeto(View):
                          'Status'])
 
         for registro in registroprojeto:
-            writer.writerow([registro.nomeProjeto, registro.user, registro.descricao, registro.dtInicio, registro.deadline,
+            writer.writerow([registro.nomeProjeto, registro.user.first_name + ' ' + registro.user.last_name, registro.descricao, registro.dtInicio, registro.deadline,
                              registro.nomeSprint, registro.status])
 
         return response

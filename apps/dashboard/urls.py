@@ -1,12 +1,8 @@
-from django.urls import path
+from django.urls import re_path
 
 from apps.dashboard.views import home, changelog
 
 urlpatterns = [
-     path('dashboard/', home, name='dashboard'),
-     path('changelog/', changelog, name='changelog'),
-
-
-
-
+     re_path('dashboard/', home, name='dashboard'),
+     re_path('changelog/', changelog, name='changelog'),
 ]

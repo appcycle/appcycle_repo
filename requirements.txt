@@ -1,13 +1,12 @@
-asgiref==3.2.10
+Django==4.2.3
 automium==0.2.6
 automium-web==0.1.1
 beautifulsoup4==4.9.3
 click==7.1.2
 decorator==4.4.2
-Django==3.1.2
 django-bootstrap-form==3.4
 django-filter==2.4.0
-django-tinymce==3.1.0
+django-tinymce==3.1.0p
 Flask==1.1.2
 itsdangerous==1.1.0
 Jinja2==2.11.2

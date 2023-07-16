@@ -2,8 +2,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
-from tinymce import models as tinymce_models
-from tinymce.models import HTMLField
+
 
 class StatusProjeto(models.Model):
     statusprojeto = models.CharField(max_length=20, verbose_name=('Status do Projeto'))
